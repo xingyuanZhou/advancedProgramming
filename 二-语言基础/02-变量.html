@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // var names;
+
+        // var names = 123;    // 变量初始化
+        // names = 'abc';
+        // console.log(names);
+
+        // var num,
+        //     num2,
+        //     num3;
+
+        // var num = 123,
+        //     num2 = 234,
+        //     num3 = 345;
+        // console.log(num, num2, num3);
+
+        // function test(){
+        //     // 局部作用域
+        //     var names = 123;
+        //     console.log(names);
+        // }
+        // test();
+        // console.log(names);
+
+        // function test(){
+        //     // console.log(names); // undefined
+        //     // var names = 123;
+        //
+        //     // 等价于
+        //     // var names;
+        //     // console.log(names);
+        //     // names = 123;
+        // }
+        // test()
+    </script>
+    <!--
+     ECMAScript 变量是松散类型的，意思是变量可以用于保存任何类型的数据。每个变量只不过是一个用于保存任意值的命名占位符。有 3 个关键字可以声明变量：var、const 和 let。其中，var 在ECMAScript 的所有版本中都可以使用，而 const 和 let 只能在 ECMAScript 6 及更晚的版本中使用。
+      1. var 声明:
+        // 定义变量
+        var message;    // 默认保存 undefined
+
+        // 变量初始化
+        var num = 123;
+
+        // 更改变量值
+        var num = 123;
+        num = 456;
+        console.log(num);
+        num = "abc";        // 合法, 但不推荐. 修改了变量保存数值的类型
+        console.log(num);
+
+        // 定义多个变量
+        var num = 123,
+            str = 'abc',
+            boo = true
+
+        2.var 作用域:
+        使用 var 操作符定义的变量会成为包含它的函数的局部变量
+        function test(){
+            var num = 123;
+            console.log(num);   // 局部变量
+
+            age = 18;           // 全局变量, 不推荐
+        }
+        test();
+
+        3.var 声明提升:
+        使用 var 时，下面的代码不会报错。这是因为使用这个关键字声明的变量会自动提升到函数作用域顶部
+        “提升”（hoist），也就是把所有变量声明都拉到函数作用域的顶部。
+        function foo(){
+            console.log(age);
+            var age = 26;
+        }
+        foo();  // undefined
+
+        // 等价于
+        function foo(){
+            var age;
+            console.log(age);
+            age = 26;
+        }
+        foo();
+    -->
+    <script>
+        // var names = 123;
+        // var names = 234;
+        // console.log(names);
+
+        // let names = 234;
+        // console.log(names);
+
+        // var names = 123;
+        // console.log(names);
+        // console.log(window.names);
+        // console.log(window);
+
+        // let names = 123;
+        // console.log(names);
+        // console.log(window.names);
+
+        // console.log(names);
+        // let names = 123;
+
+        // 全局变量
+        // var names = 123;
+        // function fn() {
+        //     // 局部变量
+        //     var names = 234;
+        // }
+        // if(true){
+        //
+        //     // 全局
+        //     var names = 234
+        // }
+        // console.log(names);
+
+        // 全局作用域
+        // let names = 123;
+        // if(true){
+        //     // 块级作用域
+        //     let names = 234;
+        // }
+        //
+        // function fn(){
+        //     // 局部作用域
+        // }
+        // console.log(names)
+
+        // for(var i = 0; i < 5; i++){
+        //     console.log(i);
+        // }
+        // console.log(i);
+
+        // for(let i = 0; i < 5; i++){
+        //
+        // }
+        // console.log(i);
+    </script>
+    <!--
+     1.let 声明
+        - 不允许重复声明同一个变量
+        - let 在全局作用域中声明的变量不会成为 window 对象的属性。（var 声明的变量则会）
+        - let 声明的变量不会在作用域中被提升
+        let age = 123;
+        let age = 123;
+
+        console.log(name);
+        let name = 123;     // 报错
+
+        let num = 123;
+        console.log(window.num)
+
+        2.作用域
+        - let 定义的变量分为 全局作用域, 局部作用域, 块级作用域
+        - 不同作用域之间同名变量不会报错
+        if(true){
+            // let 定义的变量存在块级作用域
+            let num = 123;
+            console.log(num);
+        }
+
+        let name = 'zs';
+        if(true){
+            let name = 'ls';
+            console.log(name);
+        }
+        console.log(name);
+
+        3.for 循环中的 let 声明
+        - let 出现之前，for 循环定义的迭代变量会渗透到循环体外部
+        - 在使用 var 的时候，最常见的问题就是对迭代变量的奇特声明和修改
+
+        //for(let i = 0; i < 5; i++){
+        //}
+        //console.log(i); // 报错
+
+        // for(var i = 0; i < 5; i++){
+        //     setTimeout(() => {
+        //         console.log(i);  // 5 5 5 5 5
+        //     })
+        // }
+
+        // for(let i = 0; i < 5; i++){
+        //     setTimeout(() => {
+        //         console.log(i);     // 0 1 2 3 4
+        //     })
+        // }
+    -->
+    <script>
+        // const names = 123;
+        // console.log(names);
+
+        const obj = {
+            name: 'zs'
+        }
+        obj.name = 'ls';
+        console.log(obj);
+
+        // const => let
+    </script>
+    <!--
+     1.const 声明
+        const 的行为与 let 基本相同，唯一一个重要的区别是用它声明变量时必须同时初始化变量。
+        - const 定义的值不能修改
+        - const也不允许重复申明
+        - const 声明的的作用域也是块
+        - const 可以修改对象内部的属性
+        - const 使用 for-in / for-of循环
+
+    总结:
+            1. 不使用 var
+                        有了 let 和 const，大多数开发者会发现自己不再需要 var 了。限制自己只使用 let 和 const 有助于提升代码质量，因为变量有了明确的作用域、声明位置，以及不变的值。
+               2. const 优先，let 次之
+                      声明可以让浏览器运行时强制保持变量不变，也可以让静态代码分析工具提前发现不合法的赋值操作。因此，很多开发者认为应该优先使用 const 来声明变量,只在提前知道未来会有修改时，再使用 let。这样可以让开发者更有信心地推断某些变量的值永远不会变，同时也能迅速发现因意外赋值导致的非预期行为。
+    -->
+</head>
+<body>
+
+</body>
+</html>

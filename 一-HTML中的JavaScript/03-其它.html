@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./01-index.js"></script>
+    <!--
+       1.行内代码与外部文件
+       虽然可以直接在 HTML 文件中嵌入 JavaScript 代码，但通常认为最佳实践是尽可能将 JavaScript 代码放在外部文件中。不过这个最佳实践并不是明确的强制性规则。
+       - 可维护性。 JavaScript 代码如果分散到很多 HTML 页面，会导致维护困难。而用一个目录保存所有 JavaScript 文件，则更容易维护，这样开发者就可以独立于使用它们的 HTML 页面来编辑代码。
+       - 缓存。 。浏览器会根据特定的设置缓存所有外部链接的 JavaScript 文件，这意味着如果两个页面都用到同一个文件，则该文件只需下载一次。这最终意味着页面加载更快。
+       ... ...
+
+       2.文档模式
+       E5.5引入了文档模式的概念，通过使用DOCTYPE实现模式切换，它的主要作用是告诉浏览器以哪种模式呈现，如何解析文档.
+       混杂模式: 向后兼容, 实现IE5.5以下版本浏览器的渲染模式, 支持一些非标准的特性
+       标准模式: 根据 web 标准去解析 HTML
+
+       3.noscript元素(标签)
+       如果浏览器不支持脚本或浏览器对脚本的支持被关闭。就会渲染 <noscript> 元素中的内容. 如果浏览器支持并启用脚本，则<noscript>元素中的任何内容都不会被渲染。
+    -->
+</head>
+<body>
+<noscript>
+    此浏览器不支持JavaScript
+</noscript>
+</body>
+</html>
